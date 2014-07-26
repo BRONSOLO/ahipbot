@@ -112,7 +112,7 @@ func (bot *Hipbot) messageHandler(disconnect chan bool) {
 	for {
 		msg := <-msgs
 		botMsg := &BotMessage{Message: msg}
-		log.Println("MESSAGE", msg)
+		log.Println("MESSAGE", msg)gi
 
 		atMention := "@" + bot.config.Mention
 		if strings.Contains(msg.Body, atMention) || strings.HasPrefix(msg.Body, bot.config.Mention) {
@@ -125,6 +125,7 @@ func (bot *Hipbot) messageHandler(disconnect chan bool) {
 
 			fromMyself := strings.HasPrefix(botMsg.FromNick(), bot.config.Nickname)
 			if !pluginConf.EchoMessages && fromMyself {
+			
 				continue
 			}
 			if pluginConf.OnlyMentions && !botMsg.BotMentioned {
